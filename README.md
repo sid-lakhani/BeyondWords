@@ -1,2 +1,2 @@
 # digital-dictionary
- Basic HTML, CSS and JS webite
+ Basic HTML, CSS and JS website
