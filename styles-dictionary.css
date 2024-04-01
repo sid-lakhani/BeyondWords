@@ -1,0 +1,466 @@
+:root {
+  --grey: rgba(53, 47, 68, 0.4);
+  --dark-grey: rgba(0, 0, 0, 0.6);
+  --white: rgba(255, 255, 255, 1);
+  --white-alpha: rgba(255, 255, 255, 0.7);
+
+  --yellow: rgb(251, 240, 178);
+  --pink: rgb(255, 199, 234);
+  --purple: rgb(216, 180, 248);
+  --blue: rgb(202, 237, 255);
+  --dark-navy: rgb(64, 66, 88);
+  --navy: rgb(71, 78, 104);
+  --light-navy: rgb(80, 87, 122);
+  --lighter-navy: rgb(107, 114, 142);
+
+  --bl-font: rgba(0, 0, 0, 0.8);
+  --grey-font: rgba(0, 0, 0, 0.5);
+  --wh-font: rgba(255, 255, 255, 1);
+
+  --transition: 0.3s;
+  --box-shadow: 0 0 7px rgba(107, 114, 142, 0.3);
+  --margin: 20px;
+  --border-radius: 12px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*:not(i) {
+  font-family: "Gabarito", sans-serif;
+}
+
+.flex-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+button>* {
+  pointer-events: none;
+}
+
+button,
+input {
+  transition: var(--transition);
+}
+
+button {
+  background-color: #6d0979;
+}
+
+body {
+  background: linear-gradient(var(--pink), var(--purple)) fixed;
+  height: 100vh;
+  color: var(--navy);
+  position: relative;
+}
+
+header {
+  padding: 10px;
+}
+
+header .description {
+  font-size: 0.7rem;
+  margin-bottom: 10px;
+}
+
+.input-container {
+  background: var(--pink);
+  gap: 20px;
+  width: 300px;
+  margin: 0 auto;
+  padding: 15px 10px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.input-container #query {
+  min-width: 10px;
+  border: none;
+  padding: 7px 0;
+  background: none;
+  border-bottom: 3px solid var(--purple);
+}
+
+.input-container #query:focus {
+  border-bottom: 3px solid var(--lighter-navy);
+  outline: none;
+}
+
+.input-container #search {
+  background: var(--purple);
+  border: none;
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: var(--lighter-navy);
+  cursor: pointer;
+}
+
+.input-container #search:hover {
+  background: var(--lighter-navy);
+  color: var(--pink);
+}
+
+.result-container {
+  padding: 40px 30px;
+  gap: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 400px;
+  background: var(--blue);
+  border-radius: var(--border-radius);
+  padding: 15px 30px;
+  box-shadow: var(--box-shadow);
+  gap: 5px;
+}
+
+.card .word-audio-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.card .word-audio-container .play-audio {
+  border: none;
+  background: var(--purple);
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  color: var(--light-navy);
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+}
+
+.card .word-audio-container .play-audio:hover {
+  background: var(--lighter-navy);
+  color: var(--wh-font);
+}
+
+.card .word-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.card .word-container .word {
+  font-size: 1.4rem;
+}
+
+.card .word-container .part-of-speech {
+  color: var(--lighter-navy);
+}
+
+.card .phonetic-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  color: var(--lighter-navy);
+  margin-bottom: 10px;
+}
+
+.card .phonetic-container .phonetic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1px;
+  border: 2px solid var(--purple);
+  border-radius: var(--border-radius);
+  padding: 0 5px;
+  font-size: 0.7rem;
+  background: none;
+  cursor: pointer;
+  color: var(--light-navy);
+}
+
+.card .phonetic-container .phonetic:hover {
+  background: var(--purple);
+}
+
+.card .phonetic-container .phonetic i {
+  font-size: 0.6rem;
+}
+
+.card .definition-container {
+  padding: 5px 0 0 10px;
+}
+
+.card .definition-container ol {
+  list-style: lower-roman;
+}
+
+.card .definition-container ol li {
+  padding-bottom: 10px;
+}
+
+.card .definition-container .example {
+  border-left: 4px solid var(--purple);
+  padding: 2px 0 2px 7px;
+  margin-top: 7px;
+  color: var(--lighter-navy);
+}
+
+.error-container {
+  margin-top: 30px;
+  gap: 10px;
+  text-align: center;
+}
+
+.error-container .icon {
+  font-size: 4rem;
+  margin-bottom: 10px;
+}
+
+.error-container .reason {
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+.error-container .suggestion {
+  font-size: 0.9rem;
+}
+
+.error-container a {
+  color: inherit;
+}
+
+.loader-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 200px;
+  border-radius: var(--border-radius);
+  background: var(--white-alpha);
+  backdrop-filter: blur(8px);
+  gap: 20px;
+  transition: var(--transition);
+}
+
+.loader-container.hide {
+  opacity: 0;
+  visibility: hidden;
+  z-index: -999;
+}
+
+.loader-container .icon {
+  font-size: 2rem;
+  animation: rotate 0.7s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loader-container .description {
+  font-size: 1.2rem;
+}
+
+.welcome-container {
+  margin-top: 30px;
+  gap: 10px;
+  text-align: center;
+}
+
+.welcome-container .icon {
+  font-size: 4rem;
+  margin-bottom: 10px;
+}
+
+.welcome-container .title {
+  font-size: 1.8rem;
+}
+
+.welcome-container .description {
+  font-size: 0.9rem;
+}
+
+.source-code {
+  position: fixed;
+  top: -0.2rem;
+  right: 0.5rem;
+  width: 40px;
+  height: 40px;
+  background: var(--pink);
+  opacity: 0;
+  border-radius: 0 0 50% 50%;
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+  animation: slideDown 0.5s 1s forwards;
+}
+
+.source-code a {
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+}
+
+@keyframes slideDown {
+  0% {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  100% {
+    max-height: 999px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.source-code i {
+  color: var(--navy);
+  font-size: 1.2rem;
+}
+
+.word-of-the-day-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: var(--pink);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+}
+
+.word-of-the-day-container button {
+  background: var(--purple);
+  color: var(--lighter-navy);
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.word-of-the-day-box {
+  width: 100px;
+  height: 75px;
+  background-color: var(--white);
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: var(--box-shadow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.word-of-the-day-title {
+  font-size: 18px;
+  text-align: left;
+  width: 100%;
+  height: 100%;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.word-of-the-day {
+  display: none;
+  max-width: 250px;
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 15px;
+}
+
+.word-of-the-day.show {
+  display: block;
+}
+
+.word-history-container {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: var(--pink);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+  max-height: 200px;
+  overflow-y: auto;
+  width: 200px;
+  z-index: 999;
+}
+
+.word-history-container h3 {
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.word-history-item {
+  margin-bottom: 5px;
+  font-size: 14px;
+  padding: 5px;
+  background: var(--purple);
+  border-radius: 5px;
+  color: var(--lighter-navy);
+  cursor: pointer;
+}
+
+.word-history-item:hover {
+  background: var(--lighter-navy);
+  color: var(--pink);
+}
+
+.word-origin-container {
+  margin-top: 20px;
+  padding: 10px;
+  background: var(--yellow);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.word-image {
+  max-width: 150px;
+  max-height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.input-container #translator {
+  background: var(--purple);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: var(--lighter-navy);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.input-container #translator:hover {
+  background: var(--lighter-navy);
+  color: var(--pink);
+}
